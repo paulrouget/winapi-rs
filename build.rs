@@ -417,6 +417,7 @@ impl Graph {
         }).collect::<Vec<_>>();
         libs.sort();
         libs.dedup();
+        libs.retain(|&&lib| lib != "opengl32");
         let prefix = library_prefix();
         let kind = library_kind();
         for lib in libs {
